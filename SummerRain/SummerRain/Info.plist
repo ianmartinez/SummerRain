@@ -21,6 +21,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 Ian Martinez. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
-	<string>SummerRainView</string>
+	<string>SummerRain.SummerRainView</string>
 </dict>
 </plist>
