@@ -12,28 +12,29 @@ class SummerRainView: ScreenSaverView {
     
     override init?(frame: NSRect, isPreview: Bool) {
         super.init(frame: frame, isPreview: isPreview)
-        
-        // Make sure we are on a device that can run metal!
-        guard let defaultDevice = MTLCreateSystemDefaultDevice() else {
-            fatalError("Device loading error")
-        }
-        
-        wantsLayer = true
-        
-        let rainView = RainView(frame: frame, device: defaultDevice)
-        subviews.append(rainView)
     }
 
     required init?(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
+        super.init(coder: aDecoder)
     }
     
     override func startAnimation() {
-        // Get the current background
-        let screenshot = getBackground()
-        layer!.contents = screenshot!
-        
         super.startAnimation()
+        
+        // Get the current desktop picture
+        let desktopPicture = getDesktopPicture()!
+        let backgroundImage = NSImageView(image: desktopPicture)
+        backgroundImage.imageScaling = .scaleAxesIndependently
+        backgroundImage.frame = frame
+        addSubview(backgroundImage)
+        
+        let rainView = RainView()
+        addSubview(rainView)
+        rainView.frame = frame
+        rainView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        rainView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        rainView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        rainView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
     override func stopAnimation() {
@@ -41,7 +42,7 @@ class SummerRainView: ScreenSaverView {
     }
     
     override func draw(_ rect: NSRect) {
-        
+    
     }
 
     override func animateOneFrame() {

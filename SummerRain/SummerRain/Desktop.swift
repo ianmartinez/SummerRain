@@ -9,7 +9,8 @@
 import Foundation
 import AppKit
 
-public func getBackground() -> NSImage? {
+// Get the user's desktop picture
+public func getDesktopPicture() -> NSImage? {
     let workspace = NSWorkspace.shared
     let screen = NSScreen.main!
     guard let background = workspace.desktopImageURL(for: screen) else {
