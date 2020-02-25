@@ -9,17 +9,30 @@
 import ScreenSaver
 
 class SummerRainView: ScreenSaverView {
-
+    
     override init?(frame: NSRect, isPreview: Bool) {
         super.init(frame: frame, isPreview: isPreview)
+        
+        // Make sure we are on a device that can run metal!
+        guard let defaultDevice = MTLCreateSystemDefaultDevice() else {
+            fatalError("Device loading error")
+        }
+        
+        wantsLayer = true
+        
+        let rainView = RainView(frame: frame, device: defaultDevice)
+        subviews.append(rainView)
     }
 
-    @available(*, unavailable)
-    required init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+      super.init(coder: aDecoder)
     }
     
     override func startAnimation() {
+        // Get the current background
+        let screenshot = getBackground()
+        layer!.contents = screenshot!
+        
         super.startAnimation()
     }
     

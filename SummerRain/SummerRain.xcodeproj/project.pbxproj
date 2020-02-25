@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		754482932405978A00C7F72B /* SummerRainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754482922405978A00C7F72B /* SummerRainView.swift */; };
+		754482952405998E00C7F72B /* Desktop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754482942405998E00C7F72B /* Desktop.swift */; };
+		7544829724059CEE00C7F72B /* RainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7544829624059CEE00C7F72B /* RainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7504A1472405925900469697 /* SummerRain.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SummerRain.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		7504A14E2405925900469697 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		754482922405978A00C7F72B /* SummerRainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummerRainView.swift; sourceTree = "<group>"; };
+		754482942405998E00C7F72B /* Desktop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desktop.swift; sourceTree = "<group>"; };
+		7544829624059CEE00C7F72B /* RainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,8 @@
 			children = (
 				754482922405978A00C7F72B /* SummerRainView.swift */,
 				7504A14E2405925900469697 /* Info.plist */,
+				754482942405998E00C7F72B /* Desktop.swift */,
+				7544829624059CEE00C7F72B /* RainView.swift */,
 			);
 			path = SummerRain;
 			sourceTree = "<group>";
@@ -131,7 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7544829724059CEE00C7F72B /* RainView.swift in Sources */,
 				754482932405978A00C7F72B /* SummerRainView.swift in Sources */,
+				754482952405998E00C7F72B /* Desktop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +259,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8N56QFJVA8;
@@ -273,6 +282,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8N56QFJVA8;
