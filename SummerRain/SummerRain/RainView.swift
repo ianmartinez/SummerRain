@@ -38,8 +38,10 @@ class RainView : NSView {
         let scene = SCNScene()
         sceneView.scene = scene
         
-        // Set the background to match the user's desktop picture
-        scene.background.contents = getDesktopPicture()!
+        // Set the background to match the user's desktop picture,
+        // or take a screenshot if the desktop picture is in a directory
+        // that the app doesn't have permissions to
+        scene.background.contents =  getDesktopPicture() ?? getScreenshot() 
         
         // Set up camera
         let camera = SCNCamera()

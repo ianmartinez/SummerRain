@@ -14,7 +14,13 @@ public func getDesktopPicture() -> NSImage? {
     let workspace = NSWorkspace.shared
     let screen = NSScreen.main!
     guard let background = workspace.desktopImageURL(for: screen) else {
-        fatalError("No background specified!")
+        return nil
     }
+    
     return NSImage(contentsOf: background)
+}
+
+public func getScreenshot() -> NSImage {
+    let displayID = CGMainDisplayID()
+    return NSImage(cgImage: CGDisplayCreateImage(displayID)!, size: NSZeroSize)
 }
