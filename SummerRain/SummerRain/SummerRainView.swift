@@ -21,16 +21,9 @@ class SummerRainView: ScreenSaverView {
     override func startAnimation() {
         super.startAnimation()
         
-        // Get the current desktop picture
-        let desktopPicture = getDesktopPicture()!
-        let backgroundImage = NSImageView(image: desktopPicture)
-        backgroundImage.imageScaling = .scaleAxesIndependently
-        backgroundImage.frame = frame
-        addSubview(backgroundImage)
-        
+        // Create a SceneKit view to render
         let rainView = RainView()
         addSubview(rainView)
-        rainView.frame = frame
         rainView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         rainView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         rainView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
