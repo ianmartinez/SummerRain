@@ -20,7 +20,19 @@ public func getDesktopPicture() -> NSImage? {
     return NSImage(contentsOf: background)
 }
 
-public func getScreenshot() -> NSImage {
+public func getDesktopScreenshot() -> NSImage {
     let displayID = CGMainDisplayID()
-    return NSImage(cgImage: CGDisplayCreateImage(displayID)!, size: NSZeroSize)
+    let cgScreenshot = CGDisplayCreateImage(displayID)!
+    let cgScreenshotCrop =
+        cropImage(inputImage: cgScreenshot, toRect: NSRect(x: 0, y: 50, width: cgScreenshot.width, height: cgScreenshot.height))
+    let screenshot = NSImage(cgImage: cgScreenshotCrop ?? cgScreenshot, size: NSZeroSize)
+    
+    return screenshot
+}
+
+
+func cropImage(inputImage: CGImage, toRect: CGRect) -> CGImage?
+{
+    guard let crop = inputImage.cropping(to: toRect) else { return nil }
+    return crop
 }
